@@ -1,0 +1,205 @@
+/* Body */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #74ebd5, #9face6);
+  display: flex;
+  flex-direction: column; /* Stack content + footer */
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* Main content */
+main.content {
+  flex: 1; /* Pushes footer down */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Container */
+.container {
+  background: white;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  width: 90%;
+  max-width: 550px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.container:hover {
+  transform: scale(1.02);
+}
+
+/* Title */
+h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: clamp(20px, 5vw, 28px); /* Scales with screen */
+  color: #333;
+  letter-spacing: 1px;
+}
+
+/* Task input area */
+.task-input {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 25px;
+}
+
+.task-input input,
+.task-input select,
+.task-input button {
+  flex: 1 1 100%;   /* Full width on small screens */
+  min-width: 120px;
+}
+
+.task-input input, 
+.task-input select {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  outline: none;
+  transition: 0.2s;
+}
+
+.task-input input:focus, 
+.task-input select:focus {
+  border-color: #6c63ff;
+  box-shadow: 0 0 6px rgba(108, 99, 255, 0.3);
+}
+
+.task-input button {
+  padding: 12px 18px;
+  border: none;
+  border-radius: 10px;
+  background: #6c63ff;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.task-input button:hover {
+  background: #5146d9;
+}
+
+/* Task list */
+#task-list {
+  list-style: none;
+  padding: 0;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fdfdfd;
+  padding: 15px;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  border-left: 6px solid;
+  transition: 0.2s;
+}
+
+.task-item:hover {
+  background: #f7f7ff;
+  transform: translateX(3px);
+}
+
+.task-info strong {
+  font-size: 16px;
+  color: #333;
+}
+
+.task-info small {
+  color: #666;
+  margin-top: 4px;
+}
+
+/* Priority colors */
+.priority-High { border-color: #e63946; }
+.priority-Medium { border-color: #f4a261; }
+.priority-Low { border-color: #2a9d8f; }
+
+/* Delete button */
+.delete-btn {
+  background: #e63946;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.delete-btn:hover {
+  background: #c71c30;
+}
+
+.priority-label {
+  font-weight: bold;
+  padding: 4px 10px;
+  border-radius: 8px;
+  margin-left: 12px;
+}
+
+.priority-High .priority-label {
+  background: #ffe5e9;
+  color: #e63946;
+}
+
+.priority-Medium .priority-label {
+  background: #fff0db;
+  color: #f4a261;
+}
+
+.priority-Low .priority-label {
+  background: #ddf7f3;
+  color: #2a9d8f;
+}
+
+/* Footer */
+footer {
+  background: #2c3e50;
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+}
+
+footer .profiles {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+footer .profiles a {
+  color: #1abc9c;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+footer .profiles a:hover {
+  text-decoration: underline;
+}
+
+@media (min-width: 600px) {
+  .task-input {
+    flex-wrap: nowrap; /* row layout */
+  }
+
+  .task-input input,
+  .task-input select {
+    flex: 1;
+  }
+
+  .task-input button {
+    flex: 0;
+  }
+}
